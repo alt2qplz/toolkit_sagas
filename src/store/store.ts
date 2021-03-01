@@ -3,14 +3,14 @@ import createSagaMiddleware from 'redux-saga'
 import { watcherSaga } from '../sagas/rootSaga'
 import todoReducer from '../features/todo/todoSlice'
 
-const sagaMiddleware = createSagaMiddleware();
+const sagaMiddleware = createSagaMiddleware()
 
 export const store = configureStore({
   reducer: {
     todoList: todoReducer
   },
-  middleware: [...getDefaultMiddleware({thunk: false}), sagaMiddleware] as const
-});
+  middleware: [...getDefaultMiddleware({ thunk: false }), sagaMiddleware] as const
+})
 
 sagaMiddleware.run(watcherSaga)
 
